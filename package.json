@@ -1,0 +1,24 @@
+{
+  "name": "example-gke-deploy",
+  "version": "1.0.0",
+  "description": "An example of GKE deployment",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo Fake tests success!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cowsay-blog/Example-GKE-Deploy.git"
+  },
+  "keywords": [
+    "gke",
+    "docker"
+  ],
+  "author": "MomoCow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cowsay-blog/Example-GKE-Deploy/issues"
+  },
+  "homepage": "https://github.com/cowsay-blog/Example-GKE-Deploy#readme"
+}

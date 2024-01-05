@@ -1,0 +1,34 @@
+steps:
+  # 安裝依賴
+- name: 'gcr.io/cloud-builders/npm'
+  args: [ 'install' ]
+
+  # 測試
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['test']
+
+  # 建置映像
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/${_IMAGE}:$BUILD_ID", "."]
+
+  # 推送至Container Registery
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/$PROJECT_ID/${_IMAGE}:$BUILD_ID"]
+
+  # 更新相關的容器
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'set'
+  - 'image'
+  - 'deployment/${_DEPLOYMENT}'
+  - '$_CONTAINER=gcr.io/$PROJECT_ID/${_IMAGE}:$BUILD_ID'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'
+
+substitutions:
+  _CLUSTER: nanodesu
+  _ZONE: us-west1-a
+  _IMAGE: example-image
+  _CONTAINER: nginx
+  _DEPLOYMENT: example-deployment
