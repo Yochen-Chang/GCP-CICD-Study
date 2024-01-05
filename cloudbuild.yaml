@@ -27,8 +27,8 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'
 
 substitutions:
-  _CLUSTER: nanodesu
-  _ZONE: us-west1-a
+  _CLUSTER: deploy-test-cluster
+  _ZONE: asia-east1-a
   _IMAGE: example-image
   _CONTAINER: nginx
-  _DEPLOYMENT: example-deployment
+  _DEPLOYMENT: deploy-1
