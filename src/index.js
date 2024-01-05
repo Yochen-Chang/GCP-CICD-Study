@@ -16,7 +16,7 @@ createServer((req, res) => {
   const { query } = parse(req.url)
   const queryObj = parseQuery(query || '')
 
-  const you = queryObj.me || 'World~'
+  const you = queryObj.me || 'World~~'
 
   res.writeHead(200)
   res.end(`Hello ${you}!\n`)
