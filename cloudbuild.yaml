@@ -28,7 +28,7 @@ steps:
 
 substitutions:
   _CLUSTER: deploy-test-cluster
-  _ZONE: asia-east1-a
+  _ZONE: asia-east1
   _IMAGE: example-image
   _CONTAINER: nginx
   _DEPLOYMENT: deploy-1
